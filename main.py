@@ -227,8 +227,9 @@ def output(netID_hostID, classe, ipNetwork, ipBroadcast, ipValid, status):
         outputFile = sys.argv[2]
     else:
         outputFile = "output.json"
+
     with open(outputFile, 'w') as file:
-            json.dump(results, file)
+            json.dump(results, file, indent = 4)
 
 
 
@@ -269,4 +270,5 @@ def main():
     output(netID_hostID, classe, ipNetwork, ipBroadcast, ipValid, status)
 
 
-main()
+if __name__ == "__main__":
+    main()
