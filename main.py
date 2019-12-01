@@ -76,11 +76,11 @@ def isValid(ipAddrI, netMaskI, ipAddrB, netMaskB):
     flag_zero = 0
 
     for i in range(4):
-        if (ipAddrI[i] > 255):
+        if (ipAddrI[i] > 255 or ipAddrI[i] < 0):
             print("O IP digitado é inválido!\n")
             exit()
 
-        if (netMaskI[i] > 255):
+        if (netMaskI[i] > 255 or netMaskI[i] < 0):
             print("A mascara de IP digitada é inválida!\n")
             exit()
     
