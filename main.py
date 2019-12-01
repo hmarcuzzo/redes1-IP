@@ -113,7 +113,7 @@ def host_NetWork(netMask):
 
 """ Pelo IP descobrindo a que classe esse IP pertence"""
 def isClass(ipAddr):
-    if (ipAddr[0] >= 1 and ipAddr[0] <= 127):
+    if (ipAddr[0] >= 0 and ipAddr[0] <= 127):
         classe = "A"
     elif (ipAddr[0] >= 128 and ipAddr[0] <= 191):
         classe = "B"
