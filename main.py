@@ -212,14 +212,16 @@ def networkState(ipAddr):
 
 """ Escrevendo no arquivo JSON passado por parâmetro as informações obtidas """
 def output(netID_hostID, classe, ipNetwork, ipBroadcast, ipValid, status):
+    
     results = {
         "Bits_de_rede": netID_hostID[0],
         "Bits_de_host": netID_hostID[1], 
         "Hosts_na_rede": (2 ** netID_hostID[1]) - 2, 
+        "Classe_da_Rede": classe,
         "Ip_da_rede": str(ipNetwork[0]) + "." + str(ipNetwork[1]) + "." + str(ipNetwork[2]) + "." + str(ipNetwork[3]),
         "Ip_de_broadcast": str(ipBroadcast[0]) + "." + str(ipBroadcast[1]) + "." + str(ipBroadcast[2]) + "." + str(ipBroadcast[3]),
-        "Ips_valido_inicial": str(ipValid[0][0]) + "." + str(ipValid[0][1]) + "." + str(ipValid[0][2]) + "." + str(ipValid[0][3]),
-        "Ips_valido_final": str(ipValid[1][0]) + "." + str(ipValid[1][1]) + "." + str(ipValid[1][2]) + "." + str(ipValid[1][3]),
+        "Ip_valido_inicial": str(ipValid[0][0]) + "." + str(ipValid[0][1]) + "." + str(ipValid[0][2]) + "." + str(ipValid[0][3]),
+        "Ip_valido_final": str(ipValid[1][0]) + "." + str(ipValid[1][1]) + "." + str(ipValid[1][2]) + "." + str(ipValid[1][3]),
         "Status_do_IP": status
     }
     
@@ -260,7 +262,7 @@ def main():
     ipBroadcast = findIpBroadcast(ipsVectorBinary[0], netID_hostID[0])
     print("Ip de broadcast: " + str(ipBroadcast[0]) + "." + str(ipBroadcast[1]) + "." + str(ipBroadcast[2]) + "." + str(ipBroadcast[3]))
 
-    ipValid = findIpValid(ipNetwork, ipBroadcast)
+    ipValid = findIpValid(deepcopy(ipNetwork), deepcopy(ipBroadcast))
     print("Faixa de hosts válidos: " + str(ipValid[0][0]) + "." + str(ipValid[0][1]) + "." + str(ipValid[0][2]) + "." + str(ipValid[0][3])
             + " - " + str(ipValid[1][0]) + "." + str(ipValid[1][1]) + "." + str(ipValid[1][2]) + "." + str(ipValid[1][3]))
 

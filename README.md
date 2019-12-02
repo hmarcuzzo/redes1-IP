@@ -78,5 +78,15 @@ Status do IP: Rede privada
 
 Saida do arquivo output.json:
 ```
-{"Bits_de_rede": 24, "Bits_de_host": 8, "Hosts_na_rede": 254, "Ip_da_rede": "192.168.0.1", "Ip_de_broadcast": "192.168.0.254", "Ips_valido_inicial": "192.168.0.1", "Ips_valido_final": "192.168.0.254", "Status_do_IP": "Rede privada"}
+{
+    "Bits_de_rede": 24,
+    "Bits_de_host": 8,
+    "Hosts_na_rede": 254,
+    "Classe_da_Rede": "C",
+    "Ip_da_rede": "192.168.0.0",
+    "Ip_de_broadcast": "192.168.0.255",
+    "Ip_valido_inicial": "192.168.0.1",
+    "Ip_valido_final": "192.168.0.254",
+    "Status_do_IP": "Rede privada"
+}
 ```
